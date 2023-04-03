@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    video{
+        width: 400px;
+        height: 300px;
+    }
+</style>
+<body>
+
+    <h1>Hello.Welcome to Sherabot!</h1>
+    <!-- {% for video in videos %}
+        {{video.caption}}
+        <video controls="controls">
+            <source src="{{video.video.url}}" type="video/mp4">
+        </video>
+    {% endfor %} -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Upload</button>
+    </form>
+    {% for video in videos %}
+        {{video.caption}}
+        <video controls="controls">
+            <source src="{{video.video.url}}" type="video/mp4">
+        </video>
+    {% endfor %}   
+</body>
+</html>
